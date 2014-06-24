@@ -7,4 +7,3 @@ Scripts
 
 * ironport-blacklist.awk - awk script to find black list items in Ironport logs
 
-* 
