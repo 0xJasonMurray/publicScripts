@@ -26,7 +26,7 @@ for controller in controllers:
 
     # Login (non-standard ssh it prompts for user)
     p.expect ('User:')
-    p.sendline ('nssuser')
+    p.sendline ('username')
     p.expect ('Password:')
     p.sendline (devicePass)
     p.expect ('>')
