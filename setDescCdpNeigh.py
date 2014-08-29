@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 '''
-  It is not pretty, but it gets rid of our Meru APs and 
+  It is not pretty, but it gets rid of our Meru APs and
   configures our Cisco gear.
 '''
 
@@ -13,7 +13,7 @@ import getpass
 # Global Variables
 username = 'username-goes-here'
 switch = 'switch.example.com'
-vlan702 = 720 
+vlan702 = 720
 vlanManagedAp = 345
 devicePass = 'SuperSecurePassword'
 
@@ -24,7 +24,7 @@ if not devicePass:
 
 # List of devices to connect to
 controllers = (username + '@' + switch,)
-    
+
 # When using p.logfile write here
 logfile = open('/tmp/cisco.log', 'w')
 
@@ -64,7 +64,7 @@ for controller in controllers:
 
     print ""
     for line in p.before.split('\r\n'):
-    	print '! Sanity Check: ', line
+        print '! Sanity Check: ', line
 
 	nameOnly = re.match("^([A-Z0-9a-z-]+).\w+.wustl.edu$", line)
 	if nameOnly:
@@ -73,7 +73,7 @@ for controller in controllers:
 
 	if prevLine:
 		nextLine = re.match("^\s+(\w+\s+[\d/]+).*AIR-CAP(\d+)", line)
-		if nextLine: 
+		if nextLine:
 			#print "Found next line: {0} {1}".format(nextLine.group(1), nextLine.group(2))
 			apType = nextLine.group(2)
 			print "int {0}".format(nextLine.group(1))
@@ -96,17 +96,12 @@ for controller in controllers:
     print ""
     print "! Removing old Meru junk"
     for line in p.before.split('\r\n'):
-
-	findMeru = re.match("^(.*)\s+Meru AP\s+notconnect", line)
-
-	if findMeru:
-    		print '! Sanity Check: ', line
-		print "default interface", findMeru.group(1)
+        findMeru = re.match("^(.*)\s+Meru AP\s+notconnect", line)
+        if findMeru:
+            print '! Sanity Check: ', line
+            print "default interface", findMeru.group(1)
 
 
-	
-
-		
 
 logfile.close()
 
