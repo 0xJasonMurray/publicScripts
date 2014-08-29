@@ -13,4 +13,4 @@ Scripts
 
 * createWirelessNetworksServiceCisco.py - Create cut-and-paste layer3 router interfaces for WUSTL wireless
 
-
+* createWirelessPatDns.py - Create ibcli configs for WUSTL DNS PAT addresses
