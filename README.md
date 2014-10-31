@@ -16,3 +16,5 @@ Scripts
 * createWirelessPatDns.py - Create ibcli configs for WUSTL DNS PAT addresses
 
 * change-uid-gid.sh - Change the UID and GID of a user account and all their files.
+
+* wifi-monitor.sh - Script to enable monitor mode packet captures on multiple WIFI cards.
